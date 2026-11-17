@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ai-agent
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        model: ${OLLAMA_CHAT_MODEL:llama3.2:3b}
+    mcp:
+      client:
+        streamable-http:
+          connections:
+            account-mcp-server:
+              url: ${ACCOUNT_MCP_URL:http://localhost:8081}
+              endpoint: /mcp
+
+discord:
+  token: ${DISCORD_TOKEN:}
+  gateway-intents:
+    - DIRECT_MESSAGES
+    - MESSAGE_CONTENT
+
+server:
+  port: ${SERVER_PORT:8082}
