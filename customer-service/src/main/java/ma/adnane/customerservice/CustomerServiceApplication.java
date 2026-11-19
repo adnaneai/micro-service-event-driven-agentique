@@ -1,0 +1,31 @@
+package ma.adnane.customerservice;
+
+import ma.adnane.customerservice.entities.Customer;
+import ma.adnane.customerservice.repository.CustomerRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class CustomerServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CustomerServiceApplication.class, args);
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner(CustomerRepository customerRepository){
+        return args -> {
+          customerRepository.save(Customer.builder()
+                  .name("Adnane")
+                  .email("adnane@gmail.com").build());
+            customerRepository.save(Customer.builder()
+                    .name("Hamza")
+                    .email("hamza@gmail.com").build());
+            customerRepository.save(Customer.builder()
+                    .name("Sami")
+                    .email("sami@gmail.com").build());
+        };
+    }
+}

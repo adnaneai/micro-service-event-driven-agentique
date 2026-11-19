@@ -13,6 +13,9 @@ spring:
             account-mcp-server:
               url: ${ACCOUNT_MCP_URL:http://localhost:8081}
               endpoint: /mcp
+            customer-mcp-server:
+              url: ${CUSTOMER_MCP_URL:http://localhost:8083}
+              endpoint: /mcp
 
 discord:
   token: ${DISCORD_TOKEN:}
